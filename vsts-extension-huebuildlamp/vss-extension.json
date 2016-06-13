@@ -1,0 +1,74 @@
+{
+  "manifestVersion": 1,
+  "id": "HueBuildLamp",
+  "version": "0.9.1",
+  "name": "Hue Build Lamp",
+  "scopes": [ "vso.build" ],
+  "description": "Extension to control the color of your hue lights according to build status via IFTTT.",
+  "publisher": "RobertRaaijmakers",
+  "public": false,
+  "icons": {
+    "default": "content/images/logo.png"
+  },
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "categories": [
+    "Insights"
+  ],
+  "tags": [
+    "Hue",
+    "Status",
+    "Light",
+    "Build Lamp",
+    "Build Automation"
+  ],
+  "content": {
+        "details": {
+            "path": "content/overview.md"
+        }
+    },
+  "links": {
+    "home": {
+      "uri": "https://marketplace.visualstudio.com/items?itemName=robertraaijmakers.HueBuildLamp"
+    },
+    "getstarted": {
+      "uri": "https://github.com/robertraaijmakers/vsts-extension-huebuildlamp/wiki"
+    },
+    "learn": {
+      "uri": "https://github.com/robertraaijmakers/vsts-extension-huebuildlamp/wiki"
+    },
+    "support": {
+      "uri": "https://github.com/robertraaijmakers/vsts-extension-huebuildlamp/wiki"
+    },
+    "repository": {
+      "uri": "https://github.com/robertraaijmakers/vsts-extension-huebuildlamp"
+    },
+    "issues": {
+      "uri": "https://github.com/robertraaijmakers/vsts-extension-huebuildlamp/issues"
+    }
+  },
+  "branding": {
+    "color": "rgb(220, 235, 252)",
+    "theme": "light"
+  },
+  "files": [
+    {
+      "path": "PhilipsHueIfttt"
+    }
+  ],
+  "contributions": [
+    {
+      "id": "PhilipsHueIFTTT",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "type": "ms.vss-distributed-task.task",
+      "properties": {
+        "name": "PhilipsHueIfttt"
+      }
+    }
+  ]
+}
