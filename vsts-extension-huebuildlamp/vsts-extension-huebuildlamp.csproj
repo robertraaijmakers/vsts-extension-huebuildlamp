@@ -42,12 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\images\logo.png" />
-    <Content Include="package.json" />
     <Content Include="PhilipsHueIfttt\green.jpg" />
     <Content Include="PhilipsHueIfttt\icon.png" />
     <Content Include="PhilipsHueIfttt\orange.jpg" />
     <Content Include="PhilipsHueIfttt\red.jpg" />
-    <Content Include="settings.tfx.json" />
     <Content Include="test\TestSpec.js" />
     <Content Include="vss-extension.json" />
   </ItemGroup>

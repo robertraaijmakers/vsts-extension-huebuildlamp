@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
   "id": "HueBuildLamp",
-  "version": "0.9.1",
+  "version": "0.9.6",
   "name": "Hue Build Lamp",
   "scopes": [ "vso.build" ],
   "description": "Extension to control the color of your hue lights according to build status via IFTTT.",
@@ -35,13 +35,13 @@
       "uri": "https://marketplace.visualstudio.com/items?itemName=robertraaijmakers.HueBuildLamp"
     },
     "getstarted": {
-      "uri": "https://github.com/robertraaijmakers/vsts-extension-huebuildlamp/wiki"
+      "uri": "https://github.com/robertraaijmakers/vsts-extension-huebuildlamp/wiki/Get-Started"
     },
     "learn": {
       "uri": "https://github.com/robertraaijmakers/vsts-extension-huebuildlamp/wiki"
     },
     "support": {
-      "uri": "https://github.com/robertraaijmakers/vsts-extension-huebuildlamp/wiki"
+      "uri": "https://github.com/robertraaijmakers/vsts-extension-huebuildlamp"
     },
     "repository": {
       "uri": "https://github.com/robertraaijmakers/vsts-extension-huebuildlamp"
