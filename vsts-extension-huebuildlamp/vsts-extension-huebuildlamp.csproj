@@ -42,6 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\images\logo.png" />
+    <Content Include="content\images\screenshots\ifttt-recipe.png" />
+    <Content Include="content\images\screenshots\vsts-extension-in-build.png" />
+    <Content Include="content\images\screenshots\vsts-hue-green.png" />
+    <Content Include="content\images\screenshots\vsts-hue-red.png" />
     <Content Include="PhilipsHueIfttt\green.jpg" />
     <Content Include="PhilipsHueIfttt\icon.png" />
     <Content Include="PhilipsHueIfttt\orange.jpg" />
@@ -59,9 +63,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="content\images\screenshots\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
   <ProjectExtensions>

@@ -13,7 +13,7 @@
   "version": {
     "Major": 0,
     "Minor": 9,
-    "Patch": 6
+    "Patch": 40
   },
   "demands": [
   ],
@@ -22,6 +22,11 @@
     {
       "name": "SmtpOptions",
       "displayName": "SMTP Settings",
+      "isExpanded": true
+    },
+    {
+      "name": "IftttOptions",
+      "displayName": "IFTTT Settings",
       "isExpanded": true
     }
   ],
@@ -35,14 +40,6 @@
       "helpMarkDown": "E-mailaddress specified in IFTTT as 'send from' address."
     },
     {
-      "name": "sendMailTo",
-      "type": "string",
-      "label": "Email To",
-      "defaultValue": "trigger@recipe.ifttt.com",
-      "required": true,
-      "helpMarkDown": "E-mailaddress to send email to. Default IFTTT mail address is: trigger@recipe.ifttt.com"
-    },
-    {
       "name": "buildNames",
       "type": "string",
       "label": "Included Builds",
@@ -50,6 +47,14 @@
       "required": false,
       "helpMarkDown": "Comma seperated list of builds that are included to check, if none provided, all builds are checked."
     },
+    /*{
+      "name": "smtpServerEndpoint", 
+      "type": "connectedService:Generic", 
+      "label": "SMTP Endpoint", 
+      "required": true, 
+      "helpMarkDown": "The SMTP server endpoint", 
+      "groupName": "SmtpOptions"
+    },*/
     {
       "name": "smtpServer",
       "type": "string",
@@ -57,15 +62,6 @@
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "Valid SMTP server to use for sending an email to IFTTT.",
-      "groupName": "SmtpOptions"
-    },
-    {
-      "name": "smtpPortVariable",
-      "type": "string",
-      "label": "Port",
-      "defaultValue": "587",
-      "required": true,
-      "helpMarkDown": "The port number for the smtp port. Default is 25, or 587 for SSL.",
       "groupName": "SmtpOptions"
     },
     {
@@ -89,11 +85,38 @@
     {
       "name": "smtpUseSslVariable",
       "type": "boolean",
-      "label": "SMTP Use SSL",
+      "label": "Use SSL",
       "defaultValue": true,
       "required": true,
       "helpMarkDown": "Determines if you want to use SSL to connect to the SMTP server.",
       "groupName": "SmtpOptions"
+    },
+    {
+      "name": "smtpPortVariable",
+      "type": "string",
+      "label": "Port",
+      "defaultValue": "587",
+      "required": true,
+      "helpMarkDown": "The port number for the smtp port. Default is 25, or 587 for SSL.",
+      "groupName": "SmtpOptions"
+    },
+    {
+      "name": "sendMailTo",
+      "type": "string",
+      "label": "Email To",
+      "defaultValue": "trigger@recipe.ifttt.com",
+      "required": true,
+      "helpMarkDown": "E-mailaddress to send email to. Default IFTTT mail address is: trigger@recipe.ifttt.com",
+      "groupName": "IftttOptions"
+    },
+    {
+      "name": "mailHashtag",
+      "type": "string",
+      "label": "Hashtag",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Hashtag to send to IFTTT.",
+      "groupName": "IftttOptions"
     }
   ],
   "instanceNameFormat": "Build Result Notification to IFTTT",

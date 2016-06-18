@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
   "id": "HueBuildLamp",
-  "version": "0.9.6",
+  "version": "0.9.40",
   "name": "Hue Build Lamp",
   "scopes": [ "vso.build" ],
   "description": "Extension to control the color of your hue lights according to build status via IFTTT.",
@@ -24,6 +24,20 @@
     "Light",
     "Build Lamp",
     "Build Automation"
+  ],
+  "screenshots": [
+    {
+      "path": "content/images/screenshots/vsts-extension-in-build.png"
+    },
+    {
+      "path": "content/images/screenshots/ifttt-recipe.png"
+    },
+    {
+      "path": "content/images/screenshots/vsts-hue-green.png"
+    },
+    {
+      "path": "content/images/screenshots/vsts-hue-red.png"
+    }
   ],
   "content": {
         "details": {
