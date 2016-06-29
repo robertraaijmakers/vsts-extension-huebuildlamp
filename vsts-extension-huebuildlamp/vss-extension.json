@@ -1,12 +1,12 @@
 {
   "manifestVersion": 1,
   "id": "HueBuildLamp",
-  "version": "0.9.40",
+  "version": "0.9.45",
   "name": "Hue Build Lamp",
   "scopes": [ "vso.build" ],
   "description": "Extension to control the color of your hue lights according to build status via IFTTT.",
   "publisher": "RobertRaaijmakers",
-  "public": false,
+  "public": true,
   "icons": {
     "default": "content/images/logo.png"
   },
