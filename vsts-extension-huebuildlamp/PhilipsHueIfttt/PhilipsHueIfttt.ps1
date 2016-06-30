@@ -15,32 +15,6 @@ param(
 	[string] $mailHashtag
 )
 
-<#$sendMailFrom = Get-VstsInput -Name sendMailFrom -Require
-$smtpServerEndpoint = Get-VstsInput -Name smtpServerEndpoint -Require
-$smtpServer = Get-VstsInput -Name smtpServer -Require
-$smtpUserName = Get-VstsInput -Name smtpUserName -Require
-$smtpPassword = Get-VstsInput -Name smtpPassword -Require
-$smtpUseSslVariable = Get-VstsInput -Name smtpUseSslVariable -Require
-$smtpPortVariable = Get-VstsInput -Name smtpPortVariable -Require
-$buildNames = Get-VstsInput -Name buildNames
-$sendMailTo = Get-VstsInput -Name sendMailTo -Require
-$mailHashtag = Get-VstsInput -Name mailHashtag
-
-# Retrieves the url, username and password from the specified generic endpoint.
-function GetEndpointData
-{
-	param([string][ValidateNotNullOrEmpty()]$smtpServerEndpoint)
-
-	$serviceEndpoint = Get-VstsEndpoint -Name $smtpServerEndpoint -Require
-
-	if (!$serviceEndpoint)
-	{
-		throw "A Connected Service with name '$smtpServerEndpoint' could not be found. Ensure that this Connected Service was successfully provisioned using the services tab in the Admin UI."
-	}
-
-   return $serviceEndpoint
-}#>
-
 Write-Host "Starting Control Philips Hue Task via IFTTT"
 
 # TODO: Validate global variables
@@ -50,15 +24,6 @@ Write-Host "Starting Control Philips Hue Task via IFTTT"
 [boolean]$smtpUseSsl = [convert]::ToBoolean($smtpUseSslVariable)
 [securestring]$securePassword = convertto-securestring $smtpPassword -asplaintext -force
 [string]$scriptPath = Split-Path -parent $PSCommandPath
-
-# Split URL in port and URL if possible
-<#$serviceEndpoint = GetEndpointData $smtpServerEndpoint
-$smtpServer = "$($serviceEndpoint.Url)"
-$smtpPort = $serviceEndpoint.Url.Port
-Write-Host "SMTP server url set to $($smtpServer)"
-Write-Host "SMTP port set to $($serviceEndpoint.Url.Port)"
-$smtpUserName = $serviceEndpoint.Auth.Parameters.Username
-$securePassword = $serviceEndpoint.Auth.Parameters.Password#>
 
 # Built email message
 $message = New-Object System.Net.Mail.MailMessage
@@ -125,7 +90,7 @@ Write-Host "Total matches found: $($totalMatches)"
 $uri = "{0}{1}/_apis/build/builds?api-version=2.0&definitions={2}&statusFilter=inProgress,Completed&maxBuildsPerDefinition=1" -f $serverUrl,[uri]::EscapeDataString($projectName),$matchedBuildDefinitions
 $buildResults = Invoke-RestMethod -Uri $uri -Method Get -ContentType "application/json" -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)}
 
-# This call should only provide a single result; Capture the Build ID from the result
+# This call should provide one or more results; Capture the Build IDs from the result
 if ($buildResults.count -eq 0)
 {
      throw "No build results found."
@@ -135,7 +100,7 @@ foreach($buildResult in $buildResults.value)
 {
 	if($buildResult.status -eq "inProgress")
 	{
-		# If status is in progress, get the actual state (and if errors) of this build.
+		# If status is in progress, get the actual state (and possible errors) of this build.
 		$uri = "{0}{1}/_apis/build/builds/{2}/timeline?api-version=2.0" -f $serverUrl,[uri]::EscapeDataString($projectName),$buildResult.id
 		$detailedBuildResults = Invoke-RestMethod -Uri $uri -Method Get -ContentType "application/json" -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)}
 		foreach($detailedBuildResult in $detailedBuildResults.records)
