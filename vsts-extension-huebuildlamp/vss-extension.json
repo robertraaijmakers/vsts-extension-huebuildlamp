@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
   "id": "HueBuildLamp",
-  "version": "0.9.46",
+  "version": "0.9.49",
   "name": "Hue Build Lamp",
   "scopes": [ "vso.build" ],
   "description": "Extension to control the color of your hue lights according to build status via IFTTT.",

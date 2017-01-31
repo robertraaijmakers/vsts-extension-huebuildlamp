@@ -58,10 +58,13 @@ foreach($buildDef in $buildDefinitions.value)
 	{
 		$match = $true
 	}
-
-	if($buildNames -contains $buildDef.name)
+	elseif($buildNames -contains $buildDef.name)
 	{
 		$match = $true
+	}
+	elseif($buildNames -split ',' -contains $buildDef.name)
+	{
+		$match = $true;
 	}
 
 	if($match)
